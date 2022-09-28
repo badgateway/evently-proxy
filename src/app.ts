@@ -1,11 +1,12 @@
 import { Application } from '@curveball/core';
-
 import accessLog from '@curveball/accesslog';
-
 import halBrowser from '@curveball/browser';
 import problem from '@curveball/problem';
 import bodyParser from '@curveball/bodyparser';
+
 import * as dotenv from 'dotenv';
+
+import proxy from './proxy-mw';
 
 dotenv.config();
 
@@ -25,5 +26,10 @@ app.use(problem());
 // The bodyparser middleware is responsible for parsing JSON and url-encoded
 // request bodies, and populate ctx.request.body.
 app.use(bodyParser());
+
+app.use(proxy({
+  bookmark: process.env.EVENTLY_BOOKMARK_URI!,
+  token: process.env.EVENTLY_TOKEN!
+}));
 
 export default app;
