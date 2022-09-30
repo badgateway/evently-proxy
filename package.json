@@ -49,7 +49,7 @@
   "dependencies": {
     "@curveball/accesslog": "^0.3.0",
     "@curveball/bodyparser": "^0.5.0",
-    "@curveball/browser": "^0.19.3",
+    "@curveball/browser": "^0.19.4",
     "@curveball/controller": "^0.4.0",
     "@curveball/core": "^0.20.0",
     "@curveball/problem": "^0.4.0",
